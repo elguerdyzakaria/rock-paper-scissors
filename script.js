@@ -18,3 +18,11 @@ function getComputerChoice() {
     
 }
 
+// 1.write a function named getHumanChoice, this function will return a string based on what the user typed on the prompt.
+// 2. we will create a variable and call it humanChoice, this variable will hold the input from whatever the user enters through the prompt message.
+
+function getHumanChoice() {
+    const humanChoice = prompt("please enter rock, paper or scissors to play", '');
+    return humanChoice;
+}
+
