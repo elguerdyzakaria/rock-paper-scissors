@@ -4,6 +4,8 @@
 // return the string "rock", if 0.3 < Math.random <= 0.6 the function should return the string "paper", if 0.6 < Math.random < 1 the function should
 // return the string "scissors"
 
+const humanScore = 0;
+const computerScore = 0;
 
 function getComputerChoice() {
     const randomNumber = Math.random();
