@@ -4,8 +4,8 @@
 // return the string "rock", if 0.3 < Math.random <= 0.6 the function should return the string "paper", if 0.6 < Math.random < 1 the function should
 // return the string "scissors"
 
-const humanScore = 0;
-const computerScore = 0;
+let humanScore = 0;
+let computerScore = 0;
 
 function getComputerChoice() {
     const randomNumber = Math.random();
@@ -27,4 +27,28 @@ function getHumanChoice() {
     const humanChoice = prompt("please enter rock, paper or scissors to play", '');
     return humanChoice;
 }
+
+// 1.You will write a function that takes the human and computer player choices as arguments
+// 2.plays a single round
+// 3.increments the round winner’s score and logs a winner announcement
+
+function playRound(humanChoice, computerChoice) {
+    humanChoice = humanChoice.toLowerCase();
+    if(humanChoice === computerChoice) {
+        console.log(`it's a tie!`);
+    } else if ( humanChoice === "rock" && computerChoice === "scissors" 
+    || humanChoice === "scissors" && computerChoice === "paper"
+    || humanChoice === "paper" && computerChoice === "rock") {
+        console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
+        humanScore++;
+    } else {
+        console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);
+        computerScore++;
+    }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
 
