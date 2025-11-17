@@ -1,12 +1,4 @@
-// 1. write a function named getComputerChoice
-// 2. inside the function getComputerChoice, we will use a Math.random method (Math.random method returns a random number greater than or equal to 0 and less than 1)
-// 3. if 0 <= Math.random <= 0.3 the function should
-// return the string "rock", if 0.3 < Math.random <= 0.6 the function should return the string "paper", if 0.6 < Math.random < 1 the function should
-// return the string "scissors"
-
-let humanScore = 0;
-let computerScore = 0;
-
+// function getComputerChoice to return computer choice
 function getComputerChoice() {
     const randomNumber = Math.random();
 
@@ -16,39 +8,76 @@ function getComputerChoice() {
         return "paper";
     } else {
         return "scissors";
-    }
-    
+    } 
 }
 
-// 1.write a function named getHumanChoice, this function will return a string based on what the user typed on the prompt.
-// 2. we will create a variable and call it humanChoice, this variable will hold the input from whatever the user enters through the prompt message.
-
+// function getHumanChoice to return human choice
 function getHumanChoice() {
     const humanChoice = prompt("please enter rock, paper or scissors to play", '');
     return humanChoice;
 }
 
-// 1.You will write a function that takes the human and computer player choices as arguments
-// 2.plays a single round
-// 3.increments the round winner’s score and logs a winner announcement
+function playGame() {
 
-function playRound(humanChoice, computerChoice) {
-    humanChoice = humanChoice.toLowerCase();
-    if(humanChoice === computerChoice) {
-        console.log(`it's a tie!`);
-    } else if ( humanChoice === "rock" && computerChoice === "scissors" 
-    || humanChoice === "scissors" && computerChoice === "paper"
-    || humanChoice === "paper" && computerChoice === "rock") {
-        console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
-        humanScore++;
+    let humanScore = 0; 
+    let computerScore = 0; 
+    
+    function playRound(humanChoice, computerChoice) {
+        humanChoice = humanChoice.toLowerCase();
+        if(humanChoice === computerChoice) {
+            console.log(`it's a tie!`);
+        } else if ( humanChoice === "rock" && computerChoice === "scissors" 
+        || humanChoice === "scissors" && computerChoice === "paper"
+        || humanChoice === "paper" && computerChoice === "rock") {
+            humanScore++;
+            console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
+        } else {
+            computerScore++;
+            console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);
+        }
+    }
+
+    // ROUND #1
+    let humanSelection = getHumanChoice();
+    let computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+
+    // ROUND #2
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+
+    // ROUND #3
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+
+    // ROUND #4
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+
+    // ROUND #5
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+
+
+    console.log("-----Final Scores-----");
+    console.log("humanScore: " + humanScore + " - " + "computerScore: " + computerScore);
+    console.log("-----The Winner-----");
+    if(humanScore > computerScore) {
+        console.log("You Win the Game!");
+    } else if (humanScore < computerScore) {
+        console.log("You Lose the Game!");
     } else {
-        console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);
-        computerScore++;
+        console.log("it's a Tie");
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+playGame();
 
-playRound(humanSelection, computerSelection);
+
+
+
 
