@@ -1,1 +1,4 @@
 # rock-paper-scissors
+this is a simple rock paper scissors game where the user chooses(rock/paper/scissors), and will
+be played against the computer, the computer will choose an answer based on the Math.random() method
+which return a number greater than or equal to 0 and less than 1, based on the number the computer return a choice that will be a string("rock" | "paper" | "scissors"), then the playRound function will compares both choices and declares who wins, after playing 5 rounds by calling playRound function 5 times, the humanScore and computerScore will be compared and log a winner at the end
