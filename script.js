@@ -14,7 +14,11 @@ function getComputerChoice() {
 // function getHumanChoice to return human choice
 function getHumanChoice() {
     const humanChoice = prompt("please enter rock, paper or scissors to play", '');
-    return humanChoice;
+    if(humanChoice == '' || humanChoice == null) {
+        return 'empty choice';
+    } else {
+        return humanChoice;
+    }
 }
 
 function playGame() {
@@ -23,7 +27,12 @@ function playGame() {
     let computerScore = 0; 
     
     function playRound(humanChoice, computerChoice) {
-        humanChoice = humanChoice.toLowerCase();
+        if (humanChoice == 'empty choice') {
+            return ;
+        } else {
+            humanChoice = humanChoice.toLowerCase();
+        }
+
         if(humanChoice === computerChoice) {
             console.log(`it's a tie!`);
         } else if ( humanChoice === "rock" && computerChoice === "scissors" 
